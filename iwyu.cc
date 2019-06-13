@@ -3708,7 +3708,7 @@ class IwyuAstConsumer
 
     if (fileInfo) {
       fileInfo->AddUsingDecl(decl);
-    });
+    }
 
     if (CanIgnoreCurrentASTNode())  return true;
 
