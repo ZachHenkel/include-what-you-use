@@ -3704,7 +3704,11 @@ class IwyuAstConsumer
     // though, because that will drag in every overload even if we're
     // only using one.  Instead, we keep track of the using decl and
     // mark it as touched when something actually uses it.
-    preprocessor_info().FileInfoFor(CurrentFileEntry())->AddUsingDecl(decl);
+    auto fileInfo = preprocessor_info().FileInfoFor(CurrentFileEntry());
+
+    if (fileInfo) {
+      fileInfo->AddUsingDecl(decl);
+    });
 
     if (CanIgnoreCurrentASTNode())  return true;
 
